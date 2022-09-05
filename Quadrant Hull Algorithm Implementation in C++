@@ -1,0 +1,82 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+
+int p[10][2]={ {5,4},{2,3},{-5,4},{-2,6},{-5,-4},{-2,-16},{5,-4},{2,-6},{0,0},{-1,-10} };
+int o[1][2]={{0,0}};
+int mx1[1][2],mx2[1][2],mx3[1][2],mx4[1][2],my1[1][2],my2[1][2],my3[1][2],my4[1][2];
+for(int k=0;k<2;k++){ 
+ mx1[0][k]=mx2[0][k]=mx3[0][k]=mx4[0][k]=my1[0][k]=my2[0][k]=my3[0][k]=my4[0][k]=0;
+}
+cout<<"points outside of the Hull :";
+for(int i=0;i<10;i++){
+
+if(p[i][0] >= o[0][0] && p[i][1] >= o[0][1] ) {
+
+if(p[i][0]>=mx1[0][0]){
+mx1[0][0]=p[i][0];  
+mx1[0][1]=p[i][1];  }
+
+if(p[i][1]>=my1[0][1]){
+my1[0][1]=p[i][1]; 
+my1[0][0]=p[i][0];   }
+
+}
+
+if(p[i][0] <= o[0][0] && p[i][1] >= o[0][1] ) {
+
+if(p[i][0]<=mx2[0][0]){
+mx2[0][0]=p[i][0];  
+mx2[0][1]=p[i][1];  }
+
+if(p[i][1]>=my2[0][1]){
+my2[0][1]=p[i][1]; 
+my2[0][0]=p[i][0];   }
+
+}
+
+
+if(p[i][0] <= o[0][0] && p[i][1] <= o[0][1] ) {
+
+if(p[i][0]<=mx3[0][0]){
+mx3[0][0]=p[i][0];  
+mx3[0][1]=p[i][1];  }
+
+if(p[i][1]<=my3[0][1]){
+my3[0][1]=p[i][1]; 
+my3[0][0]=p[i][0];   }
+
+}
+
+if(p[i][0] >= o[0][0] && p[i][1] <= o[0][1] ) {
+
+if(p[i][0]>=mx4[0][0]){
+mx4[0][0]=p[i][0];  
+mx4[0][1]=p[i][1];  }
+
+if(p[i][1]<=my4[0][1]){
+my4[0][1]=p[i][1]; 
+my4[0][0]=p[i][0];   }
+
+} }
+cout<<"points"<<endl;
+for(int i=0;i<10;i++){
+
+if(p[i][0]<=mx1[0][0]&&p[i][1]<=my1[0][1]&&p[i][0]>=mx2[0][0]&&p[i][1]<=my2[0][1]&&p[i][0]>=mx3[0][0]&&p[i][1]>=my3[0][1]&&p[i][0]<=mx4[0][0]&&p[i][0]>=my4[0][1]){
+
+}else{
+cout<<p[i][0]<< ","<<p[i][1]<<endl;
+}
+}
+cout<<endl;
+cout<<"1st Quadrant points :"<<mx1[0][0]<<","<<mx1[0][1]<<endl;
+cout<<"1st Quadrant points :"<<my1[0][0]<<","<<my1[0][1]<<endl;
+cout<<"2nd Quadrant points :"<<mx2[0][0]<<","<<mx2[0][1]<<endl;
+cout<<"2nd Quadrant points :"<<my2[0][0]<<","<<my2[0][1]<<endl;
+cout<<"3rd Quadrant points :"<<mx3[0][0]<<","<<mx3[0][1]<<endl;
+cout<<"3rd Quadrant points :"<<my3[0][0]<<","<<my3[0][1]<<endl;
+cout<<"4th Quadrant points :"<<mx4[0][0]<<","<<mx4[0][1]<<endl;
+cout<<"4th Quadrant points :"<<my4[0][0]<<","<<my4[0][1]<<endl;
+ }
